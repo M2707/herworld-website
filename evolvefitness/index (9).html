@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolve Fitness Club — Personal Training and Coaching</title>
+<meta name="description" content="At Evolve Fitness Club, come elevate and evolve your fitness journey with trained and passionate coaches who will up your game and fitness levels like never before.">
+
+<!-- REMOVE the next line if you do not want the old description; placeholder removed -->
+<meta name="theme-color" content="#0a0d12">
+
+<!-- Preload hero image for fastest LCP -->
+<link rel="preload" as="image" href="images/woman_KB_BG.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   EVOLVE FITNESS CLUB  |  Coach: Sindhu Bhargavi  |  Built by HerWorld
+   Theme: IGNITE  |  Deploy: upload this file + /images/ folder
+   ⚠️  Before going live, search REPLACE and swap all placeholders
+   ============================================================ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+  --fd: 'Anton', Impact, sans-serif;
+  --fs: 'Oswald', sans-serif;
+  --fb: 'Inter', system-ui, sans-serif;
+
+  --bg:        #0a0d12;
+  --bg2:       #0f1219;
+  --surf:      #151a23;
+  --surf2:     #1b212c;
+  --line:      rgba(255,255,255,0.08);
+  --lsoft:     rgba(255,255,255,0.04);
+  --text:      #ffffff;
+  --muted:     #8b93a3;
+  --dim:       #5a6273;
+  --red:       #e7242b;
+  --red2:      #ff4d54;
+  --glow:      rgba(231,36,43,0.22);
+  --dot:       rgba(231,36,43,0.5);
+
+  --pad-x: clamp(20px, 5vw, 64px);  /* fluid side padding */
+  --max: 1200px;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+  --r: 3px;
+}
+
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::selection { background: var(--red); color: #fff; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; }
+
+/* ── Layout helpers ──────────────────────────────────────── */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+/* ── Dotgrid motif ───────────────────────────────────────── */
+.dotgrid {
+  background-image: radial-gradient(circle, var(--dot) 1.5px, transparent 1.6px);
+  background-size: 20px 20px;
+}
+
+/* ── Eyebrow label ───────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--fs);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--red);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ── Chevrons ────────────────────────────────────────────── */
+.chev { display: inline-flex; gap: 5px; align-items: center; flex-shrink: 0; }
+.chev i {
+  width: 11px; height: 11px; display: block;
+  border-top: 2.5px solid var(--red);
+  border-right: 2.5px solid var(--red);
+  transform: rotate(45deg);
+  animation: chevPulse 1.6s var(--ease) infinite;
+}
+.chev i:nth-child(2) { animation-delay:.18s; opacity:.7; }
+.chev i:nth-child(3) { animation-delay:.36s; opacity:.4; }
+@keyframes chevPulse {
+  0%,100% { opacity:.25; transform:rotate(45deg) translateX(-2px); }
+  50%      { opacity:1;   transform:rotate(45deg) translateX(2px);  }
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  font-family: var(--fs);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--r);
+  transition: transform .2s var(--ease), background .2s, box-shadow .2s, color .2s, border-color .2s;
+  white-space: nowrap;
+  touch-action: manipulation; /* snappier on mobile */
+}
+.btn-solid { background: var(--red); color: #fff; }
+.btn-solid:hover, .btn-solid:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px var(--glow);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--line);
+}
+.btn-ghost:hover, .btn-ghost:focus-visible {
+  border-color: var(--red);
+  color: var(--red);
+  transform: translateY(-3px);
+}
+.btn-wa { background: #25d366; color: #062a13; }
+.btn-wa:hover, .btn-wa:focus-visible {
+  background: #2fe673;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(37,211,102,.3);
+}
+
+/* ── Reveal on scroll ────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Focus ring ──────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--pad-x);
+  transition: background .4s, padding .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+  gap: 16px;
+}
+.nav.scrolled {
+  background: rgba(10,13,18,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; flex-shrink: 0; }
+.brand-name { font-family: var(--fd); font-size: clamp(1.1rem,3vw,1.45rem); letter-spacing: .04em; color: var(--text); }
+.brand-name b { color: var(--red); }
+.brand-sub { font-family: var(--fs); font-size: 0.52rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px,3vw,28px);
+  flex-wrap: wrap;
+}
+.nav-link {
+  font-family: var(--fs);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s;
+}
+.nav-link:hover { color: var(--red); }
+
+/* Hamburger (mobile) */
+.ham {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+  margin-left: auto;
+}
+.ham span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity: 0; }
+.ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  position: fixed;
+  inset: 60px 0 0 0;
+  background: rgba(10,13,18,0.97);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 190;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 24px var(--pad-x) 36px;
+  transform: translateY(-110%);
+  transition: transform .4s var(--ease);
+  border-top: 1px solid var(--line);
+}
+.nav-drawer.open { transform: translateY(0); }
+.nav-drawer a {
+  font-family: var(--fs);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s;
+}
+.nav-drawer a:hover { color: var(--red); }
+.nav-drawer .btn-solid { margin-top: 22px; width: 100%; justify-content: center; }
+
+/* ============================================================
+   HERO — full-bleed background photo
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh; /* svh = safe viewport height on mobile */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(90px,14vh,130px) 0 clamp(60px,8vh,90px);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 22%; /* keeps her face/shoulders in frame */
+  z-index: 0;
+}
+.hero-bg-ov {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(10,13,18,.96) 0%, rgba(10,13,18,.82) 38%, rgba(10,13,18,.38) 68%, rgba(10,13,18,.15) 100%),
+    linear-gradient(0deg, rgba(10,13,18,.55) 0%, transparent 30%);
+}
+.hero-dots {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: min(240px, 35vw);
+  height: 200px;
+  opacity: .85;
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background:
+    radial-gradient(ellipse 55% 60% at 78% 35%, var(--glow) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 12% 80%, var(--glow) 0%, transparent 55%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 640px;
+}
+
+/* Text */
+.hero-eyebrow { opacity: 0; animation: fadeUp .7s var(--ease) .15s forwards; }
+.hero-h1 {
+  font-family: var(--fd);
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: .9;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-h1 .line { display: block; overflow: hidden; }
+.hero-h1 .line b {
+  display: block;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(110%);
+  animation: lineUp .95s var(--ease) forwards;
+}
+.hero-h1 .line:nth-child(1) b { animation-delay: .28s; }
+.hero-h1 .line:nth-child(2) b { animation-delay: .42s; }
+.hero-h1 .line:nth-child(3) b { animation-delay: .56s; }
+.hero-h1 .r { color: var(--red); }
+
+.hero-sub {
+  font-family: var(--fb);
+  font-size: clamp(.88rem,2vw,1.05rem);
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 440px;
+  line-height: 1.78;
+  margin-bottom: 34px;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) .8s forwards;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease) .95s forwards;
+}
+
+@keyframes lineUp { to { opacity:1; transform:none; } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+
+/* Wave divider */
+.wave { display: block; width: 100%; height: clamp(40px,6vw,70px); }
+.wave path { fill: var(--bg2); }
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee { background: var(--red); overflow: hidden; padding: 12px 0; }
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollX 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.m-item {
+  font-family: var(--fs); font-size: .78rem; font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase; color: #fff;
+  padding: 0 24px; flex-shrink: 0;
+}
+.m-dot { color: rgba(255,255,255,.5); }
+@keyframes scrollX { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+/* ============================================================
+   WHY / FACTS
+   ============================================================ */
+.why { background: var(--bg2); padding: clamp(60px,10vw,100px) 0; }
+.why-head { max-width: 760px; margin-bottom: 50px; }
+.why-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2rem,5vw,4rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.why-h2 .r { color: var(--red); }
+.why-lead {
+  font-family: var(--fb); font-size: clamp(.9rem,2vw,1.02rem);
+  font-weight: 300; color: var(--muted); margin-top: 18px; line-height: 1.8;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2px;
+  margin-bottom: 40px;
+}
+.stat {
+  background: var(--surf);
+  padding: clamp(22px,3vw,36px) clamp(16px,2.5vw,28px);
+  border-top: 3px solid var(--red);
+}
+.stat-num {
+  font-family: var(--fd);
+  font-size: clamp(2.2rem,4vw,3.2rem);
+  line-height: 1;
+  color: var(--text);
+}
+.stat-num .r { color: var(--red); }
+.stat-num .unit { font-size: clamp(1rem, 2.5vw, 1.6rem); }
+.stat-lbl {
+  font-family: var(--fb); font-size: .82rem;
+  font-weight: 300; color: var(--muted); margin-top: 10px; line-height: 1.5;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.chip {
+  font-family: var(--fs); font-size: .72rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text);
+  background: var(--surf); border: 1px solid var(--line);
+  padding: 9px 16px; border-radius: 100px;
+  display: inline-flex; align-items: center; gap: 9px;
+}
+.chip::before { content:''; width:6px; height:6px; background:var(--red); border-radius:50%; flex-shrink:0; }
+
+/* ============================================================
+   QUOTE BAND (cinematic full-bleed image + text overlay)
+   ============================================================ */
+.qband {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(280px,40vw,420px);
+  display: flex;
+  align-items: center;
+}
+.qband-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* For lower-resolution source photos: soft blur reads as an intentional cinematic
+   effect rather than visible pixelation when stretched full-bleed */
+.qband-img.soft { filter: blur(2px) brightness(.85) saturate(1.05); transform: scale(1.03); }
+.qband-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,rgba(10,13,18,.94) 0%,rgba(10,13,18,.55) 55%,rgba(231,36,43,.18) 100%);
+}
+.qband.center .qband-ov {
+  background: linear-gradient(180deg,rgba(10,13,18,.7) 0%,rgba(10,13,18,.5) 45%,rgba(10,13,18,.88) 100%);
+}
+.qband-inner { position: relative; z-index: 2; max-width: 820px; }
+.qband.center .qband-inner { text-align: center; margin: 0 auto; }
+.qband-mark { font-family: var(--fd); font-size: 3.5rem; color: var(--red); line-height: .5; display: block; }
+.qband-quote {
+  font-family: var(--fd);
+  font-size: clamp(1.8rem,5vw,4rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 16px 0;
+}
+.qband-quote em { color: var(--red); font-style: normal; }
+.qband-attr {
+  font-family: var(--fs); font-size: .72rem; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ============================================================
+   COACH
+   ============================================================ */
+.coach { background: var(--bg); padding: clamp(60px,10vw,100px) 0; }
+.coach-grid {
+  display: grid;
+  grid-template-columns: clamp(320px, 32vw, 460px) 1fr;
+  gap: clamp(30px,6vw,60px);
+  align-items: center;
+}
+.coach-photo {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surf2);
+}
+.coach-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.coach-photo-edge {
+  position: absolute; inset: 0;
+  border: 1px solid rgba(231,36,43,.35);
+  pointer-events: none;
+}
+.coach-badge {
+  position: absolute; left: 0; bottom: 22px;
+  font-family: var(--fs); font-weight: 600; font-size: .66rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: #fff; background: var(--red); padding: 9px 18px;
+}
+.coach-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2rem,4.4vw,3.6rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.coach-h2 .r { color: var(--red); }
+.coach-p {
+  font-family: var(--fb); font-size: clamp(.88rem,1.8vw,1rem);
+  font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 16px;
+}
+.coach-p b { color: var(--text); font-weight: 500; }
+.creds { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+.cred {
+  font-family: var(--fs); font-size: .7rem; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--red); border: 1px solid var(--red);
+  border-radius: var(--r); padding: 7px 13px;
+}
+
+/* ============================================================
+   FEATURE SPLIT (image left / text right)
+   ============================================================ */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(380px,55vw,560px);
+  background: var(--bg2);
+}
+.feature-img {
+  position: relative;
+  overflow: hidden;
+}
+.feature-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.feature-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg,transparent 60%,rgba(15,18,25,.9) 100%);
+}
+.feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(36px,6vw,70px) var(--pad-x);
+}
+.feature-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2rem,4vw,3.4rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.feature-h2 .r { color: var(--red); }
+.feature-p {
+  font-family: var(--fb); font-size: clamp(.88rem,1.8vw,1rem);
+  font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 14px;
+}
+.feature-p b { color: var(--text); font-weight: 500; }
+
+/* ============================================================
+   PROGRAMMES
+   ============================================================ */
+.progs { background: var(--bg); padding-bottom: clamp(60px,10vw,100px); }
+
+.progs-banner {
+  position: relative;
+  height: clamp(200px,30vw,300px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 48px;
+}
+.progs-banner img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  filter: grayscale(.4) brightness(.7);
+}
+.progs-banner-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,rgba(10,13,18,.5) 0%,rgba(10,13,18,.95) 100%),
+              linear-gradient(90deg,rgba(231,36,43,.16),transparent 55%);
+}
+.progs-banner .wrap { position: relative; z-index: 2; padding-bottom: 28px; width: 100%; }
+.progs-banner-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px,4vw,50px);
+  align-items: end;
+}
+.progs-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2rem,5vw,4rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.progs-h2 .r { color: var(--red); }
+.progs-intro {
+  font-family: var(--fb); font-size: clamp(.85rem,1.8vw,1rem);
+  font-weight: 300; color: var(--muted); line-height: 1.8;
+}
+
+.progs-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2px;
+}
+.progs-grid-4 { grid-template-columns: repeat(4,1fr); }
+.prog {
+  background: var(--surf);
+  padding: clamp(26px,3vw,38px) clamp(20px,2.5vw,32px);
+  border-top: 3px solid transparent;
+  transition: border-color .3s, background .3s, transform .3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.prog:hover { background: var(--surf2); border-top-color: var(--red); transform: translateY(-4px); }
+.prog.hot { background: var(--surf2); border-top-color: var(--red); }
+.prog-flag {
+  position: absolute; top: 0; right: 0;
+  font-family: var(--fs); font-size: .6rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; background: var(--red);
+  padding: 6px 16px 6px 22px;
+  clip-path: polygon(14px 0,100% 0,100% 100%,0 100%);
+}
+.prog-no { font-family: var(--fs); font-size: .64rem; font-weight: 600; letter-spacing: .2em; color: var(--dim); }
+.prog-name {
+  font-family: var(--fs); font-size: clamp(1.1rem,2vw,1.35rem);
+  font-weight: 600; text-transform: uppercase; letter-spacing: .01em;
+  margin: 7px 0 6px; color: var(--text);
+}
+.prog-tag { font-family: var(--fb); font-size: .84rem; font-weight: 300; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+.prog-list {
+  list-style: none; display: flex; flex-direction: column;
+  gap: 10px; margin-bottom: 22px; flex-grow: 1;
+}
+.prog-list li {
+  font-family: var(--fb); font-size: .86rem; font-weight: 300;
+  color: var(--text); display: flex; gap: 10px; line-height: 1.5;
+}
+.prog-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 10px; height: 10px;
+  margin-top: 6px;
+  border-top: 2px solid var(--red);
+  border-right: 2px solid var(--red);
+  transform: rotate(45deg);
+}
+.prog-price {
+  font-family: var(--fb); font-size: .9rem; color: var(--muted);
+  padding-top: 16px; border-top: 1px solid var(--line);
+}
+.prog-price b { font-family: var(--fd); font-size: 1.65rem; color: var(--text); margin-right: 4px; }
+.prog-price b .r { color: var(--red); }
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews { background: var(--bg2); padding: clamp(60px,10vw,100px) 0; }
+.rev-top {
+  display: grid;
+  grid-template-columns: 1fr .85fr;
+  gap: clamp(24px,5vw,56px);
+  align-items: center;
+  margin-bottom: 44px;
+}
+.rev-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2rem,4.4vw,3.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.rev-h2 .r { color: var(--red); }
+.rev-score { display: flex; align-items: baseline; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.rev-score-num { font-family: var(--fd); font-size: 2.8rem; color: var(--red); line-height: 1; }
+.rev-score-stars { font-size: 1.1rem; letter-spacing: 3px; color: var(--red); }
+.rev-score-lbl { font-family: var(--fs); font-size: .66rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.rev-img {
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.rev-img img { width: 100%; height: 100%; object-fit: cover; }
+.rev-img-edge { position: absolute; inset: 0; border: 1px solid rgba(231,36,43,.3); pointer-events: none; }
+
+.rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.review {
+  background: var(--surf);
+  padding: clamp(22px,3vw,34px) clamp(18px,2.5vw,30px);
+  display: flex; flex-direction: column; gap: 14px;
+  border-bottom: 3px solid transparent;
+  transition: border-color .3s, background .3s;
+}
+.review:hover { background: var(--surf2); border-bottom-color: var(--red); }
+.review-stars { color: var(--red); letter-spacing: 2px; font-size: .95rem; }
+.review-text {
+  font-family: var(--fb); font-size: .93rem; font-weight: 300;
+  color: var(--text); line-height: 1.7; font-style: italic; flex-grow: 1;
+}
+.review-who { display: flex; align-items: center; gap: 12px; }
+.review-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg,#ff3b42,#c4151c);
+  display: grid; place-items: center;
+  font-family: var(--fd); font-size: 1rem; color: #fff; flex-shrink: 0;
+}
+.review-name { font-family: var(--fs); font-weight: 600; font-size: .9rem; letter-spacing: .04em; color: var(--text); }
+.review-meta { font-family: var(--fb); font-size: .74rem; font-weight: 300; color: var(--muted); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(60px,10vw,100px) 0;
+  background: var(--bg);
+}
+.contact-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .3;
+}
+.contact-bgov {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,rgba(10,13,18,.88),rgba(10,13,18,.94));
+}
+.contact-grid {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(30px,6vw,64px);
+  align-items: start;
+}
+.contact-h2 {
+  font-family: var(--fd);
+  font-size: clamp(2.2rem,4.8vw,3.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.contact-h2 .r { color: var(--red); }
+.contact-p {
+  font-family: var(--fb); font-size: clamp(.88rem,1.8vw,1rem);
+  font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 28px;
+}
+.contact-direct { display: flex; flex-direction: column; gap: 12px; }
+.cd {
+  display: flex; align-items: center; gap: 13px;
+  font-family: var(--fb); font-size: .93rem; color: var(--text);
+  transition: color .2s;
+}
+.cd:hover { color: var(--red); }
+.cd-ic {
+  width: 40px; height: 40px; border-radius: var(--r);
+  border: 1px solid var(--line);
+  display: grid; place-items: center; flex-shrink: 0;
+  background: var(--surf);
+}
+.cd-ic svg { width: 18px; height: 18px; fill: var(--red); }
+.cd small { display: block; font-family: var(--fs); font-size: .58rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+
+/* Form */
+.form {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  padding: clamp(22px,4vw,38px);
+  border-radius: var(--r);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fg { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.fg label {
+  font-family: var(--fs); font-size: .63rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--red);
+}
+.fg input, .fg select, .fg textarea {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--fb);
+  font-size: 16px; /* 16px = no iOS auto-zoom */
+  font-weight: 300;
+  padding: 13px 14px;
+  border-radius: var(--r);
+  outline: none;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color .2s, background .2s;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--red);
+  background: var(--surf2);
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--dim); }
+.fg select option { background: var(--surf); color: var(--text); }
+.fg textarea { resize: vertical; min-height: 90px; }
+.form-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.form-actions .btn { flex: 1; justify-content: center; min-width: 140px; }
+.form-note {
+  font-family: var(--fb); font-size: .76rem; font-weight: 300;
+  color: var(--muted); margin-top: 14px; text-align: center;
+}
+.form-msg {
+  display: none; font-family: var(--fs); font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase; font-size: .82rem;
+  padding: 13px; border-radius: var(--r); margin-top: 12px; text-align: center;
+}
+.form-msg.ok  { display:block; background:rgba(37,211,102,.12); color:#2fe673; border:1px solid rgba(37,211,102,.35); }
+.form-msg.err { display:block; background:var(--surf2); color:var(--red); border:1px solid var(--red); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  padding: clamp(44px,8vw,64px) 0 clamp(24px,4vw,36px);
+}
+.foot-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: clamp(28px,5vw,56px);
+  padding-bottom: clamp(32px,5vw,48px);
+  margin-bottom: clamp(22px,4vw,32px);
+  border-bottom: 1px solid var(--lsoft);
+}
+.foot-brand-name { font-family: var(--fd); font-size: 1.5rem; letter-spacing: .04em; color: var(--text); margin-bottom: 10px; }
+.foot-brand-name b { color: var(--red); }
+.foot-tag { font-family: var(--fb); font-size: .88rem; font-weight: 300; color: var(--muted); max-width: 270px; line-height: 1.7; }
+.foot-h { font-family: var(--fs); font-size: .62rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+.foot-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.foot-list li { font-family: var(--fb); font-size: .86rem; font-weight: 300; color: var(--muted); }
+.foot-list a { color: var(--muted); transition: color .2s; }
+.foot-list a:hover { color: var(--red); }
+.foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.foot-copy { font-family: var(--fb); font-size: .76rem; font-weight: 300; color: var(--dim); }
+.foot-credit { font-family: var(--fs); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.foot-credit b { color: var(--red); font-weight: 700; }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet landscape: 921–1200px  → tighten grids */
+@media (max-width: 1100px) {
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .progs-grid { grid-template-columns: repeat(2,1fr); }
+  .progs-grid-4 { grid-template-columns: repeat(2,1fr); }
+}
+
+/* Tablet portrait + large mobile: 641–920px */
+@media (max-width: 920px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .ham { display: flex; }
+  /* Hide desktop CTA button in nav, it's in the drawer */
+  .nav .btn-solid { display: none; }
+
+  /* Hero — keep background photo full-bleed, just retune crop + overlay for mobile */
+  .hero-bg { object-position: 65% 18%; }
+  .hero-bg-ov {
+    background:
+      linear-gradient(180deg, rgba(10,13,18,.55) 0%, rgba(10,13,18,.88) 55%, rgba(10,13,18,.97) 100%);
+  }
+  .hero-inner { max-width: 100%; }
+
+  /* Coach */
+  .coach-grid { grid-template-columns: 1fr; }
+  .coach-photo { max-width: 420px; aspect-ratio: 4/3; }
+  .coach-photo img { object-position: center 10%; }
+
+  /* Feature split → stack */
+  .feature { grid-template-columns: 1fr; }
+  .feature-img { height: 300px; }
+  .feature-img::after { background: linear-gradient(180deg,transparent 50%,rgba(15,18,25,.95) 100%); }
+
+  /* Programmes banner */
+  .progs-banner-row { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Reviews layout */
+  .rev-top { grid-template-columns: 1fr; }
+  .rev-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .foot-top { grid-template-columns: 1fr 1fr; }
+}
+
+/* Small mobile: ≤640px */
+@media (max-width: 640px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .progs-grid { grid-template-columns: 1fr; }
+  .progs-grid-4 { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .foot-top { grid-template-columns: 1fr; }
+  .qband-quote { font-size: clamp(1.6rem,7vw,2.4rem); }
+}
+
+/* Very small: ≤380px */
+@media (max-width: 380px) {
+  .stats { grid-template-columns: 1fr; }
+  .btn { font-size: .76rem; padding: 13px 22px; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity:1 !important; transform:none !important; }
+  .hero-eyebrow,.hero-h1 .line b,.hero-sub,.hero-ctas { opacity:1 !important; transform:none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAV
+     ================================================================ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">
+    <span class="brand-name">EVOLVE<b>.</b></span>
+    <span class="brand-sub">Fitness Club</span>
+  </a>
+
+  <!-- Desktop links -->
+  <div class="nav-links">
+    <a href="#about"       class="nav-link">Coach</a>
+    <a href="#programmes"  class="nav-link">Programmes</a>
+    <a href="#reviews"     class="nav-link">Results</a>
+    <a href="#contact"     class="btn btn-solid" style="padding:11px 22px;font-size:.72rem;">Book a Session</a>
+  </div>
+
+  <!-- Hamburger (mobile) -->
+  <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<nav class="nav-drawer" id="drawer" aria-label="Mobile navigation">
+  <a href="#about"      onclick="closeDrawer()">Coach</a>
+  <a href="#programmes" onclick="closeDrawer()">Programmes</a>
+  <a href="#reviews"    onclick="closeDrawer()">Results</a>
+  <a href="#contact"    onclick="closeDrawer()">Contact</a>
+  <a href="#contact" class="btn btn-solid" onclick="closeDrawer()">Book a Session</a>
+</nav>
+
+<!-- ================================================================
+     HERO — full-bleed background photo
+     ================================================================ -->
+<section class="hero" id="top">
+  <img class="hero-bg" src="images/woman_KB_BG.jpg" alt="Athlete training with kettlebell at Evolve Fitness Club" loading="eager" fetchpriority="high">
+  <div class="hero-bg-ov"></div>
+  <div class="hero-dots dotgrid"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow hero-eyebrow">Evolve Fitness Club · Personal Training</div>
+      <h1 class="hero-h1" id="heroH1">
+        <span class="line"><b>Stronger</b></span>
+        <span class="line"><b class="r">every</b></span>
+        <span class="line"><b>day.</b></span>
+      </h1>
+      <p class="hero-sub">Come elevate and evolve your fitness journey with trained and passionate coaches who will up your game and fitness levels like never before.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-solid">Book a Free Call <span class="chev"><i></i><i></i></span></a>
+        <a href="#programmes" class="btn btn-ghost">See Programmes</a>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,32 C240,72 480,4 720,28 C960,52 1200,12 1440,36 L1440,70 L0,70 Z"></path>
+  </svg>
+</section>
+
+<!-- ================================================================
+     MARQUEE
+     ================================================================ -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="mq"></div></div>
+
+<!-- ================================================================
+     WHY / FITNESS FACTS
+     ================================================================ -->
+<section class="why">
+  <div class="wrap">
+    <div class="why-head reveal">
+      <div class="eyebrow">Why It Matters</div>
+      <h2 class="why-h2">Movement is the closest thing to a <span class="r">miracle drug.</span></h2>
+      <p class="why-lead">No pill matches what regular training does for your body and mind. The evidence is overwhelming yet most people never get the structure to act on it. That's the gap a coach closes.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="stat-num"><span data-count="1">0</span> in <span data-count="4" class="r">0</span></div>
+        <div class="stat-lbl">adults worldwide don't move enough to meet basic health guidelines (WHO)</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-count="150">0</span><span class="r unit">minutes</span></div>
+        <div class="stat-lbl">of moderate activity per week is all it takes for major health gains</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-count="30">0</span><span class="r unit">%</span></div>
+        <div class="stat-lbl">lower risk of early death linked to staying regularly active</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span data-count="2">0</span><span class="r">×</span></div>
+        <div class="stat-lbl">strength sessions a week protect muscle &amp; bone — vital as we age</div>
+      </div>
+    </div>
+    <div class="chips reveal">
+      <span class="chip">Heart &amp; circulation</span>
+      <span class="chip">Mental clarity</span>
+      <span class="chip">Strength &amp; bone density</span>
+      <span class="chip">Deeper sleep</span>
+      <span class="chip">Steady daily energy</span>
+      <span class="chip">A longer, fuller life</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     QUOTE BAND 1 — dumbell_gym_BG
+     ================================================================ -->
+<section class="qband">
+  <img class="qband-img soft" src="images/dumbell_gym_BG.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="qband-ov"></div>
+  <div class="wrap qband-inner reveal">
+    <span class="qband-mark">&ldquo;</span>
+    <p class="qband-quote">Strong isn't given.<br>It's <em>built.</em></p>
+    <span class="qband-attr">— Every rep counts</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     COACH — SB_profile
+     ================================================================ -->
+<section class="coach" id="about">
+  <div class="wrap coach-grid">
+    <!-- Photo -->
+    <div class="coach-photo reveal">
+      <img src="images/SB_profile_2.jpg" alt="Sindhu Bhargavi, certified fitness coach" loading="lazy">
+      <div class="coach-photo-edge"></div>
+      <div class="coach-badge">Sindhu Bhargavi</div>
+    </div>
+    <!-- Bio -->
+    <div class="reveal">
+      <div class="eyebrow">Your Coach</div>
+      <h2 class="coach-h2">Meet <span class="r">Sindhu.</span></h2>
+      <p class="coach-p"><b>Sindhu </b> an NFTA-certified Personal Trainer and First Aid-trained fitness coach specializing in strength training, muscle building, fat loss and cardiovascular fitness. Her coaching centers on body mechanics, progressive resistance training and a realistic plan built around your goals, experience and lifestyle.</p>
+      <p class="coach-p">Sindhu works one-on-one with clients across age groups and countries, whether you're new to the gym, returning after a break or ready to take your training to the next level. Every plan is personalized, so you train with confidence and consistency, not a generic template.</p>
+      <p class="coach-p">A special welcome to women looking to improve body composition, boost metabolic health and navigate hormonal changes through strength training and nutrition-focused habits. If that's you, you've come to the right place.</p>
+      <p class="coach-p">Ready to get started? Book a session with Sindhu today.</p>
+      <!-- ⚠️ REPLACE: swap placeholder creds for Sindhu's actual certifications -->
+      <div class="creds">
+        <span class="cred">Nutrition and Fitness Trainers Alliance (NFTA)</span>
+        <span class="cred">Women Centric Coaching</span>
+        <span class="cred">Beginner Friendly</span>
+        <span class="cred">Online Coaching</span>
+        <span class="cred">Strength &amp; Muscle Building</span>
+        <span class="cred">Cardiovascular Endurance</span>
+      </div>
+      <a href="#programmes" class="btn btn-solid">
+        Explore How She Can Help <span class="chev"><i></i><i></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FEATURE SPLIT — woman_BG_red
+     ================================================================ -->
+<section class="feature">
+  <div class="feature-img">
+    <img src="images/woman_BG_red.jpg" alt="Athlete training with battle ropes" loading="lazy">
+  </div>
+  <div class="feature-copy reveal">
+    <div class="eyebrow">Train With Intent</div>
+    <h2 class="feature-h2">Show up.<br>Get <span class="r">strong.</span><br>Repeat.</h2>
+    <p class="feature-p">Real change doesn't come from one big push, it comes from showing up with a plan, week after week. Sindhu builds that plan around <b>your goals, your level, and your schedule</b>.</p>
+    <p class="feature-p">Whether you want to build strength, move better, or feel like yourself again.</p>
+    <a href="#contact" class="btn btn-solid" style="align-self:flex-start;margin-top:16px;">
+      Start the Conversation <span class="chev"><i></i><i></i></span>
+    </a>
+  </div>
+</section>
+
+<!-- ================================================================
+     PROGRAMMES — home_gym_BG as banner
+     ================================================================ -->
+<section class="progs" id="programmes">
+  <div class="progs-banner">
+    <img src="images/home_gym_BG.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="progs-banner-ov"></div>
+    <div class="wrap">
+      <div class="progs-banner-row">
+        <div class="reveal">
+          <div class="eyebrow">Training Programmes</div>
+          <h2 class="progs-h2">Find the way<br>you will <span class="r">actually stick to.</span></h2>
+        </div>
+        <p class="progs-intro reveal">Every programme is built around your goal and your schedule.Start with a free call and we will match you to the right programme.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="progs-grid progs-grid-4">
+
+      <div class="prog reveal">
+        <span class="prog-no">01</span>
+        <div class="prog-name">Free Consultation</div>
+        <p class="prog-tag">Book a free consultation class to find out which plan works best for you.</p>
+        <ul class="prog-list">
+          <li>Goals &amp; lifestyle conversation</li>
+          <li>Honest plan recommendation</li>
+        </ul>
+        <div class="prog-price"><b>Free</b></div>
+      </div>
+
+      <div class="prog reveal">
+        <span class="prog-no">02</span>
+        <div class="prog-name">Basic Plan</div>
+        <p class="prog-tag">A straightforward workout plan to get you started and moving with purpose.</p>
+        <ul class="prog-list">
+          <li>Custom workout plan</li>
+        </ul>
+        <div class="prog-price"><b><span class="r">₹</span>8,000</b> one-time</div>
+      </div>
+
+      <div class="prog reveal">
+        <span class="prog-no">03</span>
+        <div class="prog-name">Standard Plan</div>
+        <p class="prog-tag">Structured monthly training with regular check-ins to keep you going.</p>
+        <ul class="prog-list">
+          <li>Monthly workout plan + fitness assessment</li>
+          <li>Weekly check-in meeting (once a week)</li>
+        </ul>
+        <div class="prog-price"><b><span class="r">₹</span>15,000</b>/month</div>
+      </div>
+
+      <div class="prog reveal">
+        <span class="prog-no">04</span>
+        <div class="prog-name">Premium Plan</div>
+        <p class="prog-tag">The full Evolve experience — hands-on coaching, daily and weekly check-ins.</p>
+        <ul class="prog-list">
+          <li>Monthly workout plan + fitness assessment every 6 weeks</li>
+          <li>Follow-along training session for strength &amp; resistance</li>
+          <li>Daily check-in + weekly once check-in meetings</li>
+        </ul>
+        <div class="prog-price"><b><span class="r">₹</span>30,000</b>/month</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     REVIEWS — men_woman_black_BG as community image
+     ⚠️ SAMPLE reviews — replace with Sindhu's REAL client testimonials
+     ================================================================ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-top">
+      <div class="reveal">
+        <div class="eyebrow">Results</div>
+        <h2 class="rev-h2">What clients<br><span class="r">are saying.</span></h2>
+        <div class="rev-score">
+          <span class="rev-score-num">4.8</span>
+          <div>
+            <div class="rev-score-stars">★★★★★</div>
+            <div class="rev-score-lbl">From real people who saw real change.</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-img reveal">
+        <img src="images/men_woman_black_BG.jpg" alt="Training partners celebrating after a lift" loading="lazy">
+        <div class="rev-img-edge"></div>
+      </div>
+    </div>
+
+    <div class="rev-grid">
+      <div class="review reveal">
+        <div class="review-stars">★★★★</div>
+        <p class="review-text">"Training with Sindhu has made a real difference to my fitness. I've seen noticeable progress, and the workout plan she designed suited both my goals and my routine. I'd happily recommend her to anyone looking for a personal trainer."</p>
+        <div class="review-who">
+          <div class="review-av">A</div>
+          <div><div class="review-name">Maya.</div><div class="review-meta">1-to-1 Beginner Friendly Training · 6 months</div></div>
+        </div>
+      </div>
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Sindhu is friendly, approachable, and always willing to help. She made every workout easy to understand and gave me a routine that fit well into my corporate lifestyle. Working out feels much more enjoyable now."</p>
+        <div class="review-who">
+          <div class="review-av">P</div>
+          <div><div class="review-name">Priya.</div><div class="review-meta">Strength &amp; Conditioning · 4 months</div></div>
+        </div>
+      </div>
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Training with Sindhu has been a great experience. She's patient, knows what she's doing, and always keeps me motivated. She corrected my form, helped me rebuild my confidence, and made getting back to training after a long break feel much easier."</p>
+        <div class="review-who">
+          <div class="review-av">R</div>
+          <div><div class="review-name">Najam.</div><div class="review-meta">Endurance Training · 6 months</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CLOSING QUOTE BAND — nothingisimpossible_BG
+     ================================================================ -->
+<section class="qband center">
+  <img class="qband-img" src="images/nothingisimpossible_BG.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="qband-ov"></div>
+  <div class="wrap qband-inner reveal">
+    <p class="qband-quote">Nothing is <em>impossible.</em></p>
+    <span class="qband-attr">Your strongest self starts with one decision</span>
+    <div style="margin-top:26px;">
+      <a href="#contact" class="btn btn-solid">Take the First Step <span class="chev"><i></i><i></i></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTACT — glowwithflow_BG as ambient background
+     ================================================================ -->
+<section class="contact" id="contact">
+  <img class="contact-bg" src="images/glowwithflow_BG.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="contact-bgov"></div>
+  <div class="wrap contact-grid">
+
+    <!-- Left: intro + direct links -->
+    <div class="reveal">
+      <div class="eyebrow">Start Today</div>
+      <h2 class="contact-h2">Let's build<br>your <span class="r">plan.</span></h2>
+      <p class="contact-p">Tell us your goal and we will come back with the right way to get there. Send it straight to our WhatsApp or email.</p>
+      <div class="contact-direct">
+        <!-- Sindhu's real WhatsApp number and email -->
+        <a class="cd" id="cd-wa" href="#" target="_blank" rel="noopener">
+          <span class="cd-ic">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31A8.2 8.2 0 0 1 3.9 11.91c0-4.54 3.7-8.23 8.24-8.23 4.55 0 8.24 3.69 8.24 8.23 0 4.55-3.69 8.24-8.24 8.24m4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29"/></svg>
+          </span>
+          <span><small>WhatsApp</small>+91 90369 07576</span>
+        </a>
+        <a class="cd" id="cd-email" href="#">
+          <span class="cd-ic">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+          </span>
+          <span><small>Email</small>evolvefitnessclub3@gmail.com</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: enquiry form -->
+    <div class="form reveal">
+      <div class="fg">
+        <label for="f-name">Your Name</label>
+        <input type="text" id="f-name" placeholder="First name" autocomplete="name">
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="fg">
+          <label for="f-phone">Phone (optional)</label>
+          <input type="tel" id="f-phone" placeholder="Mobile number" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label for="f-goal">Your Goal</label>
+          <select id="f-goal">
+            <option value="">Select a goal…</option>
+            <option>Build strength &amp; muscle</option>
+            <option>Lose weight / get lean</option>
+            <option>General fitness &amp; energy</option>
+            <option>Event / competition prep</option>
+            <option>Return after injury / break</option>
+            <option>Not sure yet — need advice</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="f-prog">Programme</label>
+          <select id="f-prog">
+            <option value="">I'm interested in…</option>
+            <option>Free Consultation</option>
+            <option>Basic Plan</option>
+            <option>Standard Plan</option>
+            <option>Premium Plan</option>
+            <option>Not sure — need advice</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg">
+        <label for="f-msg">Anything Else?</label>
+        <textarea id="f-msg" placeholder="Tell us a little about where you are and what you would like to achieve…"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-wa" id="send-wa">
+          <svg viewBox="0 0 24 24" width="18" height="18" style="fill:currentColor;flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18z"/></svg>
+          Send via WhatsApp
+        </button>
+        <button type="button" class="btn btn-ghost" id="send-email">Send via Email</button>
+      </div>
+      <div class="form-msg" id="form-msg"></div>
+      <p class="form-note">Fastest reply via WhatsApp — usually same day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand-name">EVOLVE<b>.</b></div>
+        <p class="foot-tag">At Evolve Fitness Club, come elevate and evolve your fitness journey with trained and passionate coaches who will up your game and your fitness levels like never before.</p>
+      </div>
+      <div>
+        <div class="foot-h">Programmes</div>
+        <ul class="foot-list">
+          <li><a href="#programmes">1-to-1 Training</a></li>
+          <li><a href="#programmes">Women Centric Coaching</a></li>
+          <li><a href="#programmes">Online Coaching</a></li>
+          <li><a href="#programmes">Corporate &amp; Group Training</a></li>
+          <li><a href="#programmes">Cardiovascular Endurance Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-h">Connect</div>
+        <ul class="foot-list">
+          <!-- Sindhu's real social links -->
+          <li><a href="#contact">WhatsApp</a></li>
+          <li><a href="#contact">Email</a></li>
+          <li><a href="#contact">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="foot-copy">© 2026 Evolve Fitness Club. All rights reserved.</span>
+      <span class="foot-credit">Built by <b>HerWorld</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   ⚠️  REPLACE THESE THREE VALUES BEFORE GOING LIVE
+   ================================================================ */
+const WA_NUM       = "919036907576";              // Evolve Fitness Club WhatsApp
+const EMAIL        = "evolvefitnessclub3@gmail.com";  // Evolve Fitness Club email
+const W3F_KEY      = "YOUR_WEB3FORMS_KEY";        // free at web3forms.com
+
+/* ── Wire direct-contact links ── */
+document.getElementById('cd-wa').href    = 'https://wa.me/' + WA_NUM;
+document.getElementById('cd-email').href = 'mailto:' + EMAIL;
+
+/* ── Nav scroll state ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), { passive: true });
+
+/* ── Mobile hamburger drawer ── */
+const ham    = document.getElementById('ham');
+const drawer = document.getElementById('drawer');
+function closeDrawer() {
+  ham.classList.remove('open');
+  drawer.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  drawer.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+// Close drawer on outside click
+document.addEventListener('click', e => {
+  if (!ham.contains(e.target) && !drawer.contains(e.target)) closeDrawer();
+});
+
+/* ── Marquee build ── */
+const words = ['Strength Training','Fat Loss','Cardiovascular Fitness','Personalised Plans','Online Coaching','Women Centric Fitness',' Beginner Friendly'];
+const seq   = [...words, ...words];
+document.getElementById('mq').innerHTML =
+  seq.map(w => `<span class="m-item">${w}</span><span class="m-item m-dot">▸</span>`).join('');
+
+/* ── Reveal on scroll ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const siblings = en.target.parentElement.querySelectorAll('.reveal:not(.in)');
+    [...siblings].forEach((el, i) => setTimeout(() => el.classList.add('in'), i * 80));
+    en.target.classList.add('in');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ── Animated stat counters ── */
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target, target = +el.dataset.count, dur = 1100, t0 = performance.now();
+    const step = t => {
+      const p = Math.min((t - t0) / dur, 1);
+      el.textContent = Math.round(p * target);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+/* ── Form helpers ── */
+const val    = id => document.getElementById(id).value.trim();
+const msgBox = document.getElementById('form-msg');
+const showMsg = (txt, ok) => { msgBox.textContent = txt; msgBox.className = 'form-msg ' + (ok ? 'ok' : 'err'); };
+
+function buildMsg() {
+  const n=val('f-name'), g=val('f-goal'), p=val('f-prog'), m=val('f-msg'), e=val('f-email'), ph=val('f-phone');
+  let t = `Hi Sindhu! I'd love to start training with you.`;
+  if (n)  t += `\n\nName: ${n}`;
+  if (g)  t += `\nGoal: ${g}`;
+  if (p)  t += `\nInterested in: ${p}`;
+  if (e)  t += `\nEmail: ${e}`;
+  if (ph) t += `\nPhone: ${ph}`;
+  if (m)  t += `\n\n${m}`;
+  return t;
+}
+
+/* WhatsApp */
+document.getElementById('send-wa').addEventListener('click', () => {
+  if (!val('f-name')) { showMsg('Please add your name first', false); return; }
+  window.open('https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(buildMsg()), '_blank');
+  showMsg('Opening WhatsApp… 🎉', true);
+});
+
+/* Email via Web3Forms (falls back to mailto if key not set) */
+document.getElementById('send-email').addEventListener('click', async () => {
+  if (!val('f-name') || !val('f-email')) { showMsg('Please add your name and email', false); return; }
+  if (W3F_KEY === 'YOUR_WEB3FORMS_KEY') {
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Training enquiry — '+val('f-name'))}&body=${encodeURIComponent(buildMsg())}`;
+    return;
+  }
+  const btn = document.getElementById('send-email');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_KEY,
+        subject:    'Training enquiry — ' + val('f-name'),
+        from_name:  val('f-name'),
+        email:      val('f-email'),
+        phone:      val('f-phone'),
+        goal:       val('f-goal'),
+        programme:  val('f-prog'),
+        message:    val('f-msg')
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      showMsg('Sent ✓  Sindhu will be in touch soon', true);
+      btn.textContent = 'Sent ✓';
+    } else {
+      throw new Error();
+    }
+  } catch {
+    showMsg('Something went wrong — try WhatsApp instead', false);
+    btn.textContent = 'Send via Email';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
